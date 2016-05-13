@@ -22,6 +22,7 @@ package com.bayviewglen.zork;
  * should probably be changed to be an item rather than a String.
  */
 
+// test
 class Command
 {
     private String commandWord;
