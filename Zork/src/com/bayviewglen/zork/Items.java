@@ -9,6 +9,6 @@ public class Items {
 		this.name = n;
 		this.weight = w; 
 	}
-	
-
 }
+
+//public class extends getItems()
