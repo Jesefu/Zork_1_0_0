@@ -69,7 +69,7 @@ Items: Key, a key that will get you through a locked door, 1.0, Bomb, weapon of 
 Room Name: Lockers
 Room Description: You are in a hallway with lockers.
 Exit Rooms: W-Hallway 5
-Items:
+Items:Hammer, can be used to break down a door of your choosing, 50.0
 Room Name: Stairs 3
 Room Description: You are at the top of the stairs.
 Exit Rooms: D-Stairs, E-Hallway 6

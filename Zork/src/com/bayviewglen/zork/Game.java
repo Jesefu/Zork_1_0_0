@@ -117,7 +117,13 @@ class Game
         try {
 			initRooms("data/rooms2.dat");
 			currentRoom = masterRoomMap.get("COMPUTER_SCIENCE_ROOM");
-
+			/* temp test for Ethan */
+			/*Items newItems = new Items();
+			newItems.put(new Item("Sword", "It is a large broadsword", 10.0));
+			newItems.put(new Item("Wat", "It is a gold ", 1.0));
+			newItems.put(new Item("Magic Wand", "It has writing on it that says Yoho", 3.0));
+			newItems.put(new Item("Troll","An angry old troll", 1000.0));			
+			currentRoom.setItems(newItems);*/
 			inventory = new Inventory();
 
 

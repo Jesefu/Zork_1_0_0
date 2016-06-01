@@ -1,78 +1,100 @@
 Room Name: Computer Science Room
 Room Description:  You are in the Computer Science Room.
 Exit Rooms: S-Hallway 2
+Room Inventory: null 
 Room Name: Hallway 2
 Room Description: You are in a large hallway.
 Exit Rooms: N-Computer Science Room, E-Hallway 3, W-Hallway 1  
+Room Inventory: null
 Room Name: Hallway 1
 Room Description: You enter a large hallway.
 Exit Rooms: N-Physics Room, S-Biology Lab, E-Hallway 2, W-Stairs 2 
+Room Inventory: null
 Room Name:  Hallway 3
 Room Description: You enter a small hallway.
 Exit Rooms: N-Washroom 1, S-Chemistry Lab, E-Exit, W-Hallway 2
+Room Inventory: null
 Room Name: Physics Room
 Room Description: You are in the physics room.
 Exit Rooms: S-Hallway 1
+Room Inventory: null
 Room Name: Biology Lab
 Room Description: You are in the biology lab.
 Exit Rooms: N-Hallway 1
+Room Inventory: null
 Room Name: Washroom
 Room Description: You are in a washroom.
 Exit Rooms: S-Hallway 3
+Room Inventory: null
 Room Name: Chemistry Lab
 Room Description: You are in the chemistry lab.
 Exit Rooms: N-Hallway 3
+Room Inventory: null
 Room Name: Exit
 Room Description: This Room appears to be locked.
 Exit Rooms: W-Hallway 3
+Room Inventory: null
 Room Name:  Stairs 2
 Room Description: You are in a staircase.
 Exit Rooms: U-Stairs 3, D-Stairs 1, E-Hallway 1
+Room Inventory: null
 Room Name: Stairs 1
 Room Description: You are in a staircase.
 Exit Rooms: U-Stairs 2, E-Hallway 4
+Room Inventory: null
 Room Name: Hallway 4
 Room Description: You are in a medium sized hallway.
 Exit Rooms: N-Washroom 2, S-Cafeteria, E-Hallway 5, W-Stairs 1
+Room Inventory: null
 Room Name: Hallway 5
 Room Description: You are in a large hallway.
 Exit Rooms: N-Change Room, S-Gym, E-Lockers, W-Hallway 4
+Room Inventory: null
 Room Name: Cafeteria
 Room Description: You are in the school cafeteria.
 Exit Rooms: N-Hallway 4
+Room Inventory: null
 Room Name: Washroom 2
 Room Description: You are in a washroom.
 Exit Rooms: S-Hallway 4
+Room Inventory: null
 Room Name: Change Room
 Room Description: You are in the boys change room.
 Exit Rooms: S-Hallway 5
+Room Inventory: null
 Room Name: Gym
 Room Description:  You are in the school gym.
 Exit Rooms: N-Hallway 5
+Room Inventory: null
 Room Name: Lockers
 Room Description: You are in a hallway with lockers.
 Exit Rooms: W-Hallway 5
+Room Inventory: null
 Room Name: Stairs 3
 Room Description: You are at the top of the stairs.
 Exit Rooms: D-Stairs 2, E-Hallway 6
+Room Inventory: null
 Room Name: Hallway 6
 Room Description: You are in a small hallway.
 Exit Rooms: N-Math Room, S-Office, E-Hallway 7, W-Stairs 3
+Room Inventory: null
 Room Name: Hallway 7
 Room Description: You are in a medium sized hallway.
 Exit Rooms: N-Janitor Closet, S-English Room, W-Hallway 6
+Room Inventory: null
 Room Name: Math Room
 Room Description: You are in the mathematics room.
 Exit Rooms: S-Hallway 6
+Room Inventory: null
 Room Name: Office
 Room Description: You are in the principals office.
 Exit Rooms: N-Hallway 6
+Room Inventory: null
 Room Name: Janitor Closet
 Room Description: You are in the janitors closet.
 Exit Rooms: S-Hallway 7
+Room Inventory: null
 Room Name: English Room
 Room Description: You are in the english room.
 Exit Rooms: N-Hallway 7
-
-
-
+Room Inventory: null
