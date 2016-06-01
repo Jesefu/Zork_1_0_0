@@ -1,5 +1,5 @@
 package com.bayviewglen.zork;
 
-public class Inventory {
+public class Inventory extends Items {
 
 }
