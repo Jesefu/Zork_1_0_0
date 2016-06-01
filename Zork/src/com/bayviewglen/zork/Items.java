@@ -41,7 +41,6 @@ public class Items {
     	return itemString;
     }
 
-
 }
 
 //public class extends getItems()

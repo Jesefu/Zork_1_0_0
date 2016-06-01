@@ -1,0 +1,100 @@
+Room Name: Computer Science Room
+Room Description:  You are in the Computer Science Room.
+Exit Rooms: S-Hallway 2
+Items: Sword, A large broadword, 10.0
+Room Name: Hallway 2
+Room Description: You are in a large hallway.
+Exit Rooms: N-Computer Science Room, E-Hallway 3, W-Hallway 1
+Items: 
+Room Name: Hallway 1
+Room Description: You enter a large hallway.
+Exit Rooms: N-Physics Room, S-Biology Lab, E-Hallway 2, W-Stairs 2 
+Items: 
+Room Name:  Hallway 3
+Room Description: You enter a small hallway.
+Exit Rooms: N-Washroom, S-Chemistry Lab, E-Stairs, W-Hallway 2
+Items:
+Room Name: Physics Room
+Room Description: You are in the physics room.
+Exit Rooms: S-Hallway 1
+Items: 
+Room Name: Biology Lab
+Room Description: You are in the biology lab.
+Exit Rooms: N-Hallway 1
+Items:
+Room Name: Washroom
+Room Description: You are in a washroom.
+Exit Rooms: S-Hallway 3
+Items: Key, a key that will get you through a locked door, 1.0
+Room Name: Chemistry Lab
+Room Description: You are in the chemistry lab.
+Exit Rooms: N-Hallway 3
+Items: Key, a key that will get you through a locked door, 1.0
+Room Name: Stairs 
+Room Description: Stairway to other floors. 
+Exit Rooms: W-Hallway 3
+Items: Upstairs Door, a locked door use a specific key to open, -1.0, Basement door, a locked door use a specific key to open, -1.0
+Room Name:  Stairs 2
+Room Description: You are in a staircase.
+Exit Rooms: U-Stairs, E-Hallway 1
+Items:
+Room Name: Stairs 1
+Room Description: You are in a staircase.
+Exit Rooms: U-Stairs 2, E-Hallway 4
+Items:
+Room Name: Hallway 4
+Room Description: You are in a medium sized hallway.
+Exit Rooms: N-Washroom 2, S-Cafeteria, E-Hallway 5, U-Stairs 
+Items:
+Room Name: Hallway 5
+Room Description: You are in a large hallway.
+Exit Rooms: N-Change Room, S-Gym, E-Lockers, W-Hallway 4
+Items:
+Room Name: Cafeteria
+Room Description: You are in the school cafeteria.
+Exit Rooms: N-Hallway 4
+Items: Flamethrower, a large weapon that shoots flames works one time, 40.0 
+Room Name: Washroom 2
+Room Description: You are in a washroom.
+Exit Rooms: S-Hallway 4
+Items:
+Room Name: Change Room
+Room Description: You are in the boys change room.
+Exit Rooms: S-Hallway 5
+Items:
+Room Name: Gym
+Room Description:  You are in the school gym.
+Exit Rooms: N-Hallway 5
+Items: Key, a key that will get you through a locked door, 1.0, Bomb, weapon of mass destruction will kill anything in its path, 40.0
+Room Name: Lockers
+Room Description: You are in a hallway with lockers.
+Exit Rooms: W-Hallway 5
+Items:Hammer, can be used to break down a door of your choosing, 50.0
+Room Name: Stairs 3
+Room Description: You are at the top of the stairs.
+Exit Rooms: D-Stairs, E-Hallway 6
+Items:
+Room Name: Hallway 6 
+Room Description: You are in a small hallway.
+Exit Rooms: N-Math Room, S-Office, E-Hallway 7
+Items: piece of paper, a piece of paper with a 4 digit code on it, 1.0
+Room Name: Hallway 7
+Room Description: You are in a medium sized hallway.
+Exit Rooms: N-Janitor Closet, S-English Room, W-Hallway 6
+Items:
+Room Name: Math Room
+Room Description: You are in the mathematics room.
+Exit Rooms: S-Hallway 6
+Items: Shield, a large shield use it to protect you, 20.0 
+Room Name: Office
+Room Description: You are in the principals office.
+Exit Rooms: N-Hallway 6
+Items:
+Room Name: Janitor Closet
+Room Description: You are in the janitors closet.
+Exit Rooms: S-Hallway 7
+Items:
+Room Name: English Room
+Room Description: You are in the english room.
+Exit Rooms: N-Hallway 7
+Items: Key, a key that will get you through a locked door, 1.0, Zombie, a large scary Zombie likes to eat brains, -1.0
