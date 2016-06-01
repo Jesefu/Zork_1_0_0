@@ -50,6 +50,7 @@ class Game
 				room.setDescription(roomDescription.split(":")[1].replaceAll("<br>", "\n").trim());
 				// Read the Exits
 				String roomExits = roomScanner.nextLine();
+				String roomInventory=roomScanner.nextLine();
 				// An array of strings in the format E-RoomName
 				String[] rooms = roomExits.split(":")[1].split(",");
 				HashMap<String, String> temp = new HashMap<String, String>(); 
