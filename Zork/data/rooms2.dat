@@ -5,7 +5,7 @@ Items: Sword, A large broadsword, 10.0
 Room Name: Hallway 2
 Room Description: You are in a large hallway.
 Exit Rooms: N-Computer Science Room, E-Hallway 3, W-Hallway 1
-Items: 
+Items: Backpack, something you can use to carry items, 1.0 
 Room Name: Hallway 1
 Room Description: You enter a large hallway.
 Exit Rooms: N-Physics Room, S-Biology Lab, E-Hallway 2, W-Stairs 2 
