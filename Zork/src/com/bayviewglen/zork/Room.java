@@ -23,6 +23,8 @@ class Room
 	private String roomName;
     private String description;
     private HashMap<String, Room> exits;        // stores exits of this room.
+    /* temp for Ethan testing */
+    private Items items;
 
     /**
      * Create a room described "description". Initially, it has no exits.
@@ -32,6 +34,8 @@ class Room
     {
         this.description = description;
         exits = new HashMap<String, Room>();
+        /* temp for ethan testing */
+        items = new Items();
     }
 
     public Room() {
@@ -39,6 +43,8 @@ class Room
     	roomName = "DEFAULT ROOM";
     	description = "DEFAULT DESCRIPTION";
     	exits = new HashMap<String, Room>();
+        /* temp for ethan testing */
+        items = new Items();
 	}
 
     public void setExit(char direction, Room r) throws Exception{
@@ -77,6 +83,12 @@ class Room
             exits.put("down", down);
         
     }
+    
+    public void setItems(Items newItems) {
+    	items = newItems;
+    }
+    
+    
 
     /**
      * Return the description of the room (the one that was defined in the
@@ -95,7 +107,7 @@ class Room
     public String longDescription()
     {
     	
-        return "Room: " + roomName +"\n\n" + description + "\n" + exitString();
+        return "Room: " + roomName +"\n\n" + description + "\n" +itemString()+ "\n" + exitString();
     }
 
     /**
@@ -109,6 +121,12 @@ class Room
         for(Iterator iter = keys.iterator(); iter.hasNext(); )
             returnString += " " + iter.next();
         return returnString;
+    }
+    
+    private String itemString() {
+    	String itemString = items.getAsString();
+    	String returnString = "I see: "+itemString;
+		return returnString;
     }
 
     /**
@@ -134,5 +152,8 @@ class Room
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public Items getRoomItems(){
+		return items;
 	}
 }

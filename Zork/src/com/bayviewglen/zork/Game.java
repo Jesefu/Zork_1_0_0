@@ -29,10 +29,12 @@ class Game
     private Parser parser;
     private Room currentRoom;
     // This is a MASTER object that contains all of the rooms and is easily accessible.
-    // The key will be the name of the room -> no spaces (Use all caps and underscore -> Great Room would have a key of GREAT_ROOM
-    // In a hashmap keys are case sensitive.
+    // The  will be the name of the room -> no spaces (Use all caps and underscore -> Great Room would have a  of GREAT_ROOM
+    // In a hashmap s are case sensitive.
     // masterRoomMap.get("GREAT_ROOM") will return the Room Object that is the Great Room (assuming you have one).
     private HashMap<String, Room> masterRoomMap;
+    /* temp test by Ethan */
+    private Inventory inventory;
     
     private void initRooms(String fileName) throws Exception{
     	masterRoomMap = new HashMap<String, Room>();
@@ -58,7 +60,26 @@ class Game
 				}
 				
 				exits.put(roomName.substring(10).trim().toUpperCase().replaceAll(" ",  "_"), temp);
-				
+				// Added by Ethan - loads in the items into the room
+				Items items = new Items();
+			
+				String roomItemsText = roomScanner.nextLine();
+				String[] itemSplit = roomItemsText.split(":");
+				String itemParts[];
+				if (itemSplit.length > 1) {
+					itemParts = itemSplit[1].split(",");
+				} else {
+					itemParts = new String[0];
+				}
+				if (itemParts.length > 1) {
+					int count=0;
+					while (count < itemParts.length) {
+						items.put(new Item(itemParts[count].trim(), itemParts[count+1].trim(), Double.parseDouble(itemParts[count+2].trim())));
+						count = count + 3;
+					}
+				}
+				room.setItems(items);
+				// end add by Ethan
 				// This puts the room we created (Without the exits in the masterMap)
 				masterRoomMap.put(roomName.toUpperCase().substring(10).trim().replaceAll(" ",  "_"), room);
 				
@@ -94,8 +115,12 @@ class Game
      */
     public Game() {
         try {
-			initRooms("data/Rooms.dat");
-			currentRoom = masterRoomMap.get("ROOM_1");
+			initRooms("data/rooms2.dat");
+			currentRoom = masterRoomMap.get("COMPUTER_SCIENCE_ROOM");
+
+			inventory = new Inventory();
+
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -103,7 +128,7 @@ class Game
         parser = new Parser();
     }
 
-    
+  
 
     /**
      *  Main play routine.  Loops until end of play.
@@ -164,6 +189,21 @@ class Game
         }else if (commandWord.equals("eat")){
         	System.out.println("Do you really think you should be eating at a time like this?");
         }
+        else if ((commandWord.equals("take")) || (commandWord.equals("add")) || (commandWord.equals("get"))){
+        	addItem(command);
+        }
+        else if ((commandWord.equals("drop")) || (commandWord.equals("remove")) || (commandWord.equals("leave"))){
+        	dropItem(command);
+        }
+        else if (commandWord.equals("inventory") || commandWord.equals("i")){
+        	showInventory();
+        }
+        else if (commandWord.equals("hit")) {
+        	hit(command);
+        }  
+        else if (commandWord.equals("open")){
+        	open(command);
+        }
         return false;
     }
 
@@ -202,12 +242,138 @@ class Game
         Room nextRoom = currentRoom.nextRoom(direction);
 
         if (nextRoom == null)
-            System.out.println("There is no door!");
+            System.out.println("You can't go that way");
         else 
         {
             currentRoom = nextRoom;
             System.out.println(currentRoom.longDescription());
         }
+    }
+    
+    private void look(){
+    	System.out.println(currentRoom.longDescription());
+    }
+    
+    private void addItem(Command command){
+    	String secondWord = command.getSecondWord();
+    	Items items = currentRoom.getRoomItems();
+    	Item item = items.get(secondWord);
+    	if (item == null)
+    		System.out.println("That item isnt in this room");
+    	else{
+    		System.out.println("Item has been added to the inventory");
+    		inventory.put(item);
+    		items.remove(item);
+    	}
+    	
+    }
+    private void dropItem(Command command){
+    	String secondWord = command.getSecondWord();
+    	Item inventoryItem = inventory.get(secondWord);
+    	Items roomItems = currentRoom.getRoomItems();
+    	if (inventoryItem == null)
+    		System.out.println("You can't drop an item that you don't have");
+    	else{
+    		System.out.println("The item has been dropped");
+    		inventory.remove(inventoryItem);
+    		roomItems.put(inventoryItem);
+    	}
+    }
+    private void showInventory(){
+    	String i = inventory.getAsString();
+    	System.out.println("inventory: " + i);
+    }
+    private void open(Command command){
+    	Items roomItems = currentRoom.getRoomItems();
+    	String secondWord = command.getSecondWord();
+    	String thirdWord = command.getThirdWord();
+
+    	if (currentRoom.getRoomName().toLowerCase().equals("stairs")) {
+    		Item item = null;
+    		Item item2 = null;
+    		if ((secondWord.toLowerCase().equals("upstairs")) && (thirdWord.toLowerCase().equals("door"))) {
+    			item = roomItems.get("Upstairs Door");
+    			item2 = inventory.get("Key");
+    		} else if ((secondWord.toLowerCase().equals("basement")) && (thirdWord.toLowerCase().equals("door"))) {
+    			item = roomItems.get("Basement Door");
+    			System.out.println("What is the password?"); 
+				Command command2 = parser.getCommand();
+				String password = "8549"; 
+				String firstWord = command2.getCommandWord();
+				if (firstWord != null) {
+					if (firstWord.equals(password)){
+						roomItems.remove(item);
+						try {
+							currentRoom.setExit('D', masterRoomMap.get("STAIRS_2"));
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						System.out.println("The door was opened!");
+						look();
+						return;
+					}else{
+					}
+				} else {
+				}
+    		}
+	    	if (item == null){
+	    		System.out.println("You can't go that way");
+	    		return;
+	    	}
+	    	if (item2 == null){
+	    		System.out.println("The door is locked, you can't get through");
+	    		return;
+	    	}
+	    	else{
+	    		System.out.println("Used key to open the door");
+				roomItems.remove(item);
+				try {
+					currentRoom.setExit('U', masterRoomMap.get("STAIRS_3"));
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				look();
+			
+	    	}
+    	}
+    }
+    	
+    private void hit(Command command) {
+    	String secondWord = command.getSecondWord();
+    	String fourthWord = command.getFourthWord();
+    	Items roomItems = currentRoom.getRoomItems();
+    	Item inventorySword = inventory.get("Sword");
+    	Item troll = roomItems.get("Troll");
+    	if (secondWord == null){
+    		System.out.println("Hit what?");
+    		return;
+    	}
+    	if (troll == null){
+    		System.out.println("There are no trolls here");
+    		return;
+    	}
+    	if(fourthWord == null){
+    		System.out.println("With what?");
+    		return;
+    	}
+    	if(!secondWord.equals("troll")){
+    		System.out.println("You can't hit that!");
+    		return;
+    	}
+    	if(!fourthWord.equals("sword")){
+    		System.out.println("You can't hit him with that!");
+    		return;
+    	}
+    	if(inventorySword == null){
+    		System.out.println("You don't have a sword");
+    		return;
+    	}
+    	else {
+    		System.out.println("the troll is dead");
+    		roomItems.remove(troll);
+    	}
     }
   
 }
