@@ -5,10 +5,15 @@ package com.bayviewglen.zork;
 import java.util.ArrayList;
 
 public class Items {
-	ArrayList<Item> itemList;
+	
+	private double MAX_WEIGHT = 100;
+	private double currentWeight;
+	
+	private ArrayList<Item> itemList;
 	
 	public Items() {
 		itemList = new ArrayList<Item>();
+		currentWeight = 0;
 	}
 	
     public Item get(String itemName) {
@@ -23,7 +28,15 @@ public class Items {
     	return null;
     }
     public void put(Item item) {
-    	itemList.add(item);
+    	if (hasBackpack(itemList)==true){
+    		MAX_WEIGHT = 400;
+    	}
+    	if (item.getWeight() + currentWeight < MAX_WEIGHT){
+    		itemList.add(item);
+    		currentWeight = (currentWeight + item.getWeight()) ;
+    	}else{
+    		System.out.println("You are too weak to carry this with you...");
+    	}
     }
     public void remove(Item item){
     	itemList.remove(item);
